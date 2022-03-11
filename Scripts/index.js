@@ -33,7 +33,9 @@ function addToCart(amount, price)
   if (isValid(amount))
   {
     numItems += parseInt(amount);
+    totalPriceVar += parseInt(amount)*parseInt(price);
     localStorage.setItem("totalItems", numItems);
+    localStorage.setItem("totalPrice", totalPriceVar)
     document.getElementById('itemsAmount').innerHTML = numItems;
   }
 }
