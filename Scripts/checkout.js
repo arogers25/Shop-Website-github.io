@@ -15,6 +15,7 @@ function getDiscount(code)
   if (code == "10OFF") return oldPrice - (0.10*oldPrice);
   if (code == "20OFF") return oldPrice - (0.20*oldPrice);
   if (code == "FREE") return 0;
+  if (code != "") alert("Please enter a valid discount code");
   return oldPrice;
 }
 

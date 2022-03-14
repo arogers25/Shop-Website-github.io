@@ -2,105 +2,68 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
-    <style>
-      .body {
-        background-color: rgb(50,50,50);
-      }
-      .pageDiv {
-        border: 3px outset salmon;
-        background-color: rgb(30,30,30);
-        text-align: center;
-      }
-      .navigation {
-        font-family: Arial, Helvetica, sans-serif;
-      }
-      .h1 {
-        color: white;
-        font-family: Arial, Helvetica, sans-serif;
-      }
-      .cost {
-        color:white;
-        font-family: Arial, Helvetica, sans-serif;
-        text-align: right;
-      }
-      .headGreeting {
-        display: flex;
-        justify-content: space-between;
-      }
-      .shopDiv {
-        display:flex;
-        flex-direction:row;
-      }
-      .shopDiv > div {
-        color:white;
-        border: 3px outset salmon;
-        background-color: rgb(30,30,30);
-        margin:auto;
-      }
-      .copySpan {
-        color:white;
-      }
-    </style>
+    <title>Shop</title>
+    <link rel="stylesheet" type="text/css" href="Styles/index.css">
   </head>
-  <body class ="body">
-    <div class="pageDiv">
-      <h1 class="navigation">
+  <body id="body">
+    <div id="pageDiv">
+      <h1 id="welcomeText">Welcome to the Store</h1>
+      <h2 id="navigation">
         <a href="index.html" target="_blank">Store</a>
         &nbsp
-        <a href="childPage/checkout.html" target="_blank">Checkout</a></h1>
+        <a href="childPage/checkout.html" target="_blank">Checkout</a>
+      </h2>
+      <p id="cost">
+        You have <a id="itemsAmount">0</a> Items in your cart <br><button type="button" onclick="resetItems()">Empty my Cart</button>
+      </p>
     </div>
-    <div class="headGreeting">
-      <h1 class="h1">Welcome to the Store</h1>
-      <p class="cost">You have <a id="itemsAmount">0</a> Items in your cart <br><button type="button" onclick="resetItems()">Empty my Cart</button></p>
-    </div>
-    <div class="shopDiv">
+    <div id="shopDiv">
       <div>
-        <img src="Images/T-Shirt.jpg" style="width:200px;height:200px;"></img>
+        <img src="Images/T-Shirt.jpg" style="width: 200px;height: 200px;"></img>
         <br>
-        <span>T-Shirt - $30</span>
+        <span><b>T-Shirt - $30</b></span>
         <br>
-        <label for="textfield">Amount:</label>
+        <label for="textfield">Amount: </label>
         <input name="amountField" type="text" id="amountField1" size="10" maxlength="3" value="0">
         <br>
         <button type="button" onclick="addToCart(document.getElementById('amountField1').value, 30)">Add to Cart</button>
       </div>
       <div>
-        <img src="Images/Hat.jpg" style="width:200px;height:200px;"></img>
+        <img src="Images/Hat.jpg" style="width: 200px;height: 200px;"></img>
         <br>
-        <span>Hat - $20</span>
+        <span><b>Hat - $20</b></span>
         <br>
-        <label for="textfield">Amount:</label>
+        <label for="textfield">Amount: </label>
         <input name="amountField" type="text" id="amountField2" size="10" maxlength="3" value="0">
         <br>
         <button type="button" onclick="addToCart(document.getElementById('amountField2').value, 20)">Add to Cart</button>
       </div>
       <div>
-        <img src="Images/Jacket.webp" style="width:200px;height:200px;"></img>
+        <img src="Images/Jacket.webp" style="width: 200px;height: 200px;"></img>
         <br>
-        <span>Jacket - $50</span>
+        <span><b>Jacket - $50</b></span>
         <br>
-        <label for="textfield">Amount:</label>
+        <label for="textfield">Amount: </label>
         <input name="amountField" type="text" id="amountField3" size="10" maxlength="3" value="0">
         <br>
         <button type="button" onclick="addToCart(document.getElementById('amountField3').value, 50)">Add to Cart</button>
       </div>
       <div>
-        <img src="Images/Pants.webp" style="width:200px;height:200px;"></img>
+        <img src="Images/Pants.webp" style="width: 200px;height: 200px;"></img>
         <br>
-        <span>Pants - $30</span>
+        <span><b>Pants - $30</b></span>
         <br>
-        <label for="textfield">Amount:</label>
+        <label for="textfield">Amount: </label>
         <input name="amountField" type="text" id="amountField4" size="10" maxlength="3" value="0">
         <br>
         <button type="button" onclick="addToCart(document.getElementById('amountField4').value, 30)">Add to Cart</button>
       </div>
       <div>
-        <img src="Images/Sneakers.jpg" style="width:200px;height:200px;"></img>
+        <img src="Images/Sneakers.jpg" style="width: 200px;height: 200px;"></img>
         <br>
-        <span>Sneakers - $70</span>
+        <span><b>Sneakers - $70</b></span>
         <br>
-        <label for="textfield">Amount:</label>
+        <label for="textfield">Amount: </label>
         <input name="amountField" type="text" id="amountField5" size="10" maxlength="3" value="0">
         <br>
         <button type="button" onclick="addToCart(document.getElementById('amountField5').value, 7)">Add to Cart</button>
@@ -108,5 +71,6 @@
     </div>
     <script src="Scripts/index.js"></script>
   </body>
-  <footer><span class="copySpan"><br>&copy Andreas Rogers</span></footer>
+  <br>
+  <footer><span id="copySpan"><br>&copy Andreas Rogers</span></footer>
 </html>

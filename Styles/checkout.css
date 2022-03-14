@@ -1,0 +1,43 @@
+#body {
+  background-color: rgb(50,50,50);
+}
+#pageDiv {
+  border: 3px solid crimson;
+  background-color: rgb(30,30,30);
+  text-align: center;
+  border-radius: 15px;
+}
+#navigation {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 0px;
+}
+#welcomeText {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 0px;
+}
+#cost {
+  color:white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#headGreeting {
+  display: flex;
+  justify-content: space-between;
+}
+#checkoutDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#checkoutDiv > div {
+  text-align: center;
+  background-color: rgb(30, 30, 30);
+  border: 3px solid crimson;
+  display: inline-block;
+  border-radius: 15px;
+  padding:10px;
+}
+#copySpan {
+  color:white;
+  font-family: Arial, Helvetica, sans-serif;
+}

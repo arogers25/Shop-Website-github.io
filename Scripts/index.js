@@ -1,4 +1,3 @@
-//alert("You made it to index.html!");
 let numItems = 0;
 if (localStorage.getItem("totalItems") == null) localStorage.setItem("totalItems", 0);
 numItems = parseInt(localStorage.getItem("totalItems"));
@@ -8,6 +7,7 @@ if (localStorage.getItem("totalPrice") == null) localStorage.setItem("totalPrice
 totalPriceVar = parseInt(localStorage.getItem("totalPrice"));
 
 document.getElementById('itemsAmount').innerHTML = numItems;
+
 function isValid(number)
 {
   if (number == "")
