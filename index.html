@@ -1,76 +1,85 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Shop</title>
-    <link rel="stylesheet" type="text/css" href="Styles/index.css">
-  </head>
-  <body id="body">
-    <div id="pageDiv">
-      <h1 id="welcomeText">Welcome to the Store</h1>
-      <h2 id="navigation">
-        <a href="index.html" target="_blank">Store</a>
-        &nbsp
-        <a href="childPage/checkout.html" target="_blank">Checkout</a>
-      </h2>
-      <p id="cost">
-        You have <a id="itemsAmount">0</a> Items in your cart <br><button type="button" onclick="resetItems()">Empty my Cart</button>
-      </p>
+
+<head>
+  <meta charset="utf-8">
+  <title>Shop</title>
+  <link rel="stylesheet" type="text/css" href="Styles/index.css">
+  <script>
+    if (localStorage.getItem("loggedIn") != "true" || localStorage.getItem("userList") == null) window.location.href = "childPage/login.html";
+  </script>
+</head>
+
+<body id="body">
+  <div id="pageDiv">
+    <h1 id="welcomeText">Welcome to the Store</h1>
+    <h2 id="navigation">
+      <a href="index.html" target="_blank">Store</a>
+      &nbsp
+      <a href="childPage/checkout.html" target="_blank">Checkout</a>
+    </h2>
+    <p id="cost">
+      You have <a id="itemsAmount">0</a> Items in your cart <br><button type="button" onclick="resetItems()">Empty my Cart</button>
+      <br>
+      <button type="button" onclick="localStorage.setItem('loggedIn', false); window.location.href = 'childPage/login.html'">Log
+        Out</button>
+    </p>
+  </div>
+  <div id="shopDiv">
+    <div>
+      <img src="Images/T-Shirt.jpg" style="width: 200px;height: 200px;"></img>
+      <br>
+      <span><b>T-Shirt - $30</b></span>
+      <br>
+      <label for="amountField">Amount: </label>
+      <input name="amountField" type="text" id="amountField1" size="10" maxlength="3" value="0">
+      <br>
+      <button type="button" onclick="addToCart(document.getElementById('amountField1').value, 30)">Add to Cart</button>
     </div>
-    <div id="shopDiv">
-      <div>
-        <img src="Images/T-Shirt.jpg" style="width: 200px;height: 200px;"></img>
-        <br>
-        <span><b>T-Shirt - $30</b></span>
-        <br>
-        <label for="textfield">Amount: </label>
-        <input name="amountField" type="text" id="amountField1" size="10" maxlength="3" value="0">
-        <br>
-        <button type="button" onclick="addToCart(document.getElementById('amountField1').value, 30)">Add to Cart</button>
-      </div>
-      <div>
-        <img src="Images/Hat.jpg" style="width: 200px;height: 200px;"></img>
-        <br>
-        <span><b>Hat - $20</b></span>
-        <br>
-        <label for="textfield">Amount: </label>
-        <input name="amountField" type="text" id="amountField2" size="10" maxlength="3" value="0">
-        <br>
-        <button type="button" onclick="addToCart(document.getElementById('amountField2').value, 20)">Add to Cart</button>
-      </div>
-      <div>
-        <img src="Images/Jacket.webp" style="width: 200px;height: 200px;"></img>
-        <br>
-        <span><b>Jacket - $50</b></span>
-        <br>
-        <label for="textfield">Amount: </label>
-        <input name="amountField" type="text" id="amountField3" size="10" maxlength="3" value="0">
-        <br>
-        <button type="button" onclick="addToCart(document.getElementById('amountField3').value, 50)">Add to Cart</button>
-      </div>
-      <div>
-        <img src="Images/Pants.webp" style="width: 200px;height: 200px;"></img>
-        <br>
-        <span><b>Pants - $30</b></span>
-        <br>
-        <label for="textfield">Amount: </label>
-        <input name="amountField" type="text" id="amountField4" size="10" maxlength="3" value="0">
-        <br>
-        <button type="button" onclick="addToCart(document.getElementById('amountField4').value, 30)">Add to Cart</button>
-      </div>
-      <div>
-        <img src="Images/Sneakers.jpg" style="width: 200px;height: 200px;"></img>
-        <br>
-        <span><b>Sneakers - $70</b></span>
-        <br>
-        <label for="textfield">Amount: </label>
-        <input name="amountField" type="text" id="amountField5" size="10" maxlength="3" value="0">
-        <br>
-        <button type="button" onclick="addToCart(document.getElementById('amountField5').value, 7)">Add to Cart</button>
-      </div>
+    <div>
+      <img src="Images/Hat.jpg" style="width: 200px;height: 200px;"></img>
+      <br>
+      <span><b>Hat - $20</b></span>
+      <br>
+      <label for="amountField">Amount: </label>
+      <input name="amountField" type="text" id="amountField2" size="10" maxlength="3" value="0">
+      <br>
+      <button type="button" onclick="addToCart(document.getElementById('amountField2').value, 20)">Add to Cart</button>
     </div>
-    <script src="Scripts/index.js"></script>
-  </body>
-  <br>
-  <footer><span id="copySpan"><br>&copy Andreas Rogers</span></footer>
+    <div>
+      <img src="Images/Jacket.webp" style="width: 200px;height: 200px;"></img>
+      <br>
+      <span><b>Jacket - $50</b></span>
+      <br>
+      <label for="amountField">Amount: </label>
+      <input name="amountField" type="text" id="amountField3" size="10" maxlength="3" value="0">
+      <br>
+      <button type="button" onclick="addToCart(document.getElementById('amountField3').value, 50)">Add to Cart</button>
+    </div>
+    <div>
+      <img src="Images/Pants.webp" style="width: 200px;height: 200px;"></img>
+      <br>
+      <span><b>Pants - $30</b></span>
+      <br>
+      <label for="amountField">Amount: </label>
+      <input name="amountField" type="text" id="amountField4" size="10" maxlength="3" value="0">
+      <br>
+      <button type="button" onclick="addToCart(document.getElementById('amountField4').value, 30)">Add to Cart</button>
+    </div>
+    <div>
+      <img src="Images/Sneakers.jpg" style="width: 200px;height: 200px;"></img>
+      <br>
+      <span><b>Sneakers - $70</b></span>
+      <br>
+      <label for="amountField">Amount: </label>
+      <input name="amountField" type="text" id="amountField5" size="10" maxlength="3" value="0">
+      <br>
+      <button type="button" onclick="addToCart(document.getElementById('amountField5').value, 7)">Add to Cart</button>
+    </div>
+  </div>
+  <script src="Scripts/index.js"></script>
+</body>
+<br>
+<footer><span id="copySpan"><br>&copy Andreas Rogers</span></footer>
+
 </html>

@@ -1,13 +1,10 @@
-let numItems = 0;
-if (localStorage.getItem("totalItems") == null) localStorage.setItem("totalItems", 0);
-numItems = parseInt(localStorage.getItem("totalItems"));
+let userList = JSON.parse(localStorage.getItem("userList"));
+let userId = localStorage.getItem("userId");
 
-let oldPrice = 0;
-if (localStorage.getItem("totalPrice") == null) localStorage.setItem("totalPrice", 0);
-oldPrice = parseInt(localStorage.getItem("totalPrice"));
+let oldPrice = userList.users[userId].price;
 let newPrice = oldPrice;
 
-document.getElementById('itemsAmount').innerHTML = numItems;
+document.getElementById('itemsAmount').innerHTML = userList.users[userId].amount;
 document.getElementById('cartTotal').innerHTML = newPrice;
 
 function getDiscount(code)
@@ -21,13 +18,13 @@ function getDiscount(code)
 
 function resetItems()
 {
-  numItems = 0;
-  localStorage.setItem("totalItems", numItems);
-  document.getElementById('itemsAmount').innerHTML = numItems;
+  userList.users[userId].amount = 0;
+  document.getElementById('itemsAmount').innerHTML = userList.users[userId].amount;
   oldPrice = 0;
   newPrice = oldPrice;
-  localStorage.setItem("totalPrice", newPrice)
+  userList.users[userId].price = 0;
   document.getElementById('cartTotal').innerHTML = newPrice;
+  localStorage.setItem("userList", JSON.stringify(userList));
 }
 
 

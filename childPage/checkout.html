@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Checkout</title>
-    <link rel="stylesheet" type="text/css" href="../Styles/checkout.css">
-  </head>
-  <body id="body">
-    <div id="pageDiv">
-      <h1 id="welcomeText">Checkout</h1>
-      <h2 id="navigation">
-        <a href="../index.html" target="_blank">Store</a>
-        &nbsp
-        <a href="../childPage/checkout.html" target="_blank">Checkout</a></h1>
-    </div>
-    <br>
-    <div id="checkoutDiv">
-      <div>
-        <span id="cost">You have <a id="itemsAmount">0</a> Items in your cart
-          <br>
-          Your cart total comes to $<a id="cartTotal">0</a>
-          <br>
-          Discount Codes are 10OFF, 20OFF, FREE
-          <br>
-          <label for="textfield">Discount Code:</label>
-          <br>
-        </span>
-        <input name="amountField" type="text" id="discountField">
-        <button type="button" onclick="applyDiscount()">Apply</button>
-        <br>
-        <button type="button" onclick="resetItems()">Purchase</button>
-      </div>
-    </div>
-    <script src="../Scripts/checkout.js"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Checkout</title>
+  <link rel="stylesheet" type="text/css" href="../Styles/checkout.css">
+  <script>
+    if (localStorage.getItem("loggedIn") != "true" || localStorage.getItem("userList") == null) window.location.href = "login.html";
+  </script>
+</head>
+
+<body id="body">
+  <div id="pageDiv">
+    <h1 id="welcomeText">Checkout</h1>
+    <h2 id="navigation">
+      <a href="../index.html" target="_blank">Store</a>
+      &nbsp
+      <a href="../childPage/checkout.html" target="_blank">Checkout</a>
+      <br>
+      <button type="button" onclick="localStorage.setItem('loggedIn', false); window.location.href = 'login.html'">Log
+        Out</button>
+    </h2>
+  </div>
   <br>
-  <footer><span id="copySpan"><br>&copy Andreas Rogers</span></footer>
+  <div id="checkoutDiv">
+    <div>
+      <span id="cost">You have <a id="itemsAmount">0</a> Items in your cart
+        <br>
+        Your cart total comes to $<a id="cartTotal">0</a>
+        <br>
+        Discount Codes are 10OFF, 20OFF, FREE
+        <br>
+        <label for="discountField">Discount Code:</label>
+        <br>
+      </span>
+      <input type="text" id="discountField">
+      <button type="button" onclick="applyDiscount()">Apply</button>
+      <br>
+      <button type="button" onclick="resetItems()">Purchase</button>
+    </div>
+  </div>
+  <script src="../Scripts/checkout.js"></script>
+</body>
+<br>
+<footer><span id="copySpan"><br>&copy Andreas Rogers</span></footer>
+
 </html>

@@ -1,12 +1,7 @@
-let numItems = 0;
-if (localStorage.getItem("totalItems") == null) localStorage.setItem("totalItems", 0);
-numItems = parseInt(localStorage.getItem("totalItems"));
-
-let totalPriceVar = 0;
-if (localStorage.getItem("totalPrice") == null) localStorage.setItem("totalPrice", 0);
-totalPriceVar = parseInt(localStorage.getItem("totalPrice"));
-
-document.getElementById('itemsAmount').innerHTML = numItems;
+let userList = JSON.parse(localStorage.getItem("userList"));
+let userId = localStorage.getItem("userId");
+localStorage.setItem("userList", JSON.stringify(userList));
+document.getElementById('itemsAmount').innerHTML = userList.users[userId].amount;
 
 function isValid(number)
 {
@@ -30,19 +25,18 @@ function isValid(number)
 
 function addToCart(amount, price)
 {
-  if (isValid(amount))
-  {
-    numItems += parseInt(amount);
-    totalPriceVar += parseInt(amount)*parseInt(price);
-    localStorage.setItem("totalItems", numItems);
-    localStorage.setItem("totalPrice", totalPriceVar)
-    document.getElementById('itemsAmount').innerHTML = numItems;
-  }
+    userList.users[userId].amount += parseInt(amount);
+    userList.users[userId].price += parseInt(price)*amount;
+    localStorage.setItem("userList", JSON.stringify(userList));
+    document.getElementById('itemsAmount').innerHTML = userList.users[userId].amount;
+    document.getElementById('cartTotal').innerHTML = userList.users[userId].price;
 }
 
 function resetItems()
 {
-  numItems = 0;
-  localStorage.setItem("totalItems", numItems);
-  document.getElementById('itemsAmount').innerHTML = numItems;
+  userList.users[userId].amount = 0;
+  userList.users[userId].price = 0;
+  localStorage.setItem("userList", JSON.stringify(userList));
+  document.getElementById('itemsAmount').innerHTML = 0;
+  document.getElementById('cartTotal').innerHTML = 0;
 }
