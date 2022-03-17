@@ -14,13 +14,25 @@ if (localStorage.getItem("userList") == null)
     list = JSON.parse(localStorage.getItem("userList"));
 }
 
-let loginList = document.getElementById("loginList");
-loginList.innerHTML = "";
-for (let i = 0; i < list.users.length; i++)
+function showUserList()
 {
-  loginList.innerHTML += ('Name: "' + list.users[i].name + "''");
-  loginList.innerHTML += (' Password: "' + list.users[i].password + '"');
-  loginList.innerHTML += "<br>"
+    let loginList = document.getElementById("loginList");
+    loginList.innerHTML = "";
+    for (let i = 0; i < list.users.length; i++)
+    {
+        loginList.innerHTML += ('Name: "' + list.users[i].name + "''");
+        loginList.innerHTML += (' Password: "' + list.users[i].password + '"');
+        loginList.innerHTML += ('&nbsp <button type="button" onclick="removeUser(' + i + ')">Delete</button>'); // Replace with createElement onclick
+        loginList.innerHTML += "<br>";
+    }
+}
+showUserList();
+
+function removeUser(id)
+{
+    list.users.splice(id, 1);
+    localStorage.setItem("userList", JSON.stringify(list));
+    showUserList();
 }
 
 function findUserId(name)
