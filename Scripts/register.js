@@ -16,6 +16,17 @@ function registerAccount()
 {
   let usernameId = document.getElementById("usernameBox").value;
   let passwordEntry = document.getElementById("passwordBox").value;
+  if (usernameId == "")
+  {
+    alert("You cannot make an account without a username!");
+    return;
+  }
+  if (passwordEntry == "")
+  {
+    alert("You cannot make an account without a password!");
+    return;
+  }
+
   if (existingUser(usernameId))
   {
     alert("User already exists");
