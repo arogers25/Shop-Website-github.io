@@ -14,6 +14,15 @@ if (localStorage.getItem("userList") == null)
     list = JSON.parse(localStorage.getItem("userList"));
 }
 
+let loginList = document.getElementById("loginList");
+loginList.innerHTML = "";
+for (let i = 0; i < list.users.length; i++)
+{
+  loginList.innerHTML += ('Name: "' + list.users[i].name + "''");
+  loginList.innerHTML += (' Password: "' + list.users[i].password + '"');
+  loginList.innerHTML += "<br>"
+}
+
 function findUserId(name)
 {
     for (let i = 0; i < list.users.length; i++)
