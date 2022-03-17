@@ -3,19 +3,19 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Log In</title>
+  <title>Register</title>
   <style>
     body {
       background-color: rgb(50, 50, 50)
     }
 
-    #loginDiv {
+    #registerDiv {
       display: flex;
       justify-content: center;
       align-items: center;
       margin-top: 50vh;
     }
-    #loginDiv > div {
+    #registerDiv > div {
       border: 3px solid crimson;
       background-color: rgb(30, 30, 30);
       padding: 50px;
@@ -26,12 +26,15 @@
       border-radius: 15px;
     }
   </style>
+  <script>
+    if (localStorage.getItem("userList") == null) window.location.href = "login.html";
+  </script>
 </head>
 
 <body>
-  <div id="loginDiv">
+  <div id="registerDiv">
     <div>
-      <b>This store needs a password to access.</b>
+      <b>Register an Account</b>
       <br>
       Username:
       <input id="usernameBox" type="text">
@@ -39,15 +42,12 @@
       Password:
       <input id="passwordBox" type="password">
       <br>
-      <button type="button" onclick="attemptLogin()">Log In</button>
+      <button type="button" onclick="registerAccount()">Register</button>
       <br>
-      Accounts: <br>
-      Username: "Account1" Password: "access1" <br>
-      Username: "Account2" Password: "access2" <br>
-      <a href="register.html">Register an Account</a>
+      <a href="login.html">Back to Login</a>
     </div>
   </div>
-  <script src="../Scripts/login.js"></script>
+  <script src="../Scripts/register.js"></script>
 </body>
 
 </html>

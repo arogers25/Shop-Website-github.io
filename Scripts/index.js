@@ -1,6 +1,6 @@
 let userList = JSON.parse(localStorage.getItem("userList"));
 let userId = localStorage.getItem("userId");
-localStorage.setItem("userList", JSON.stringify(userList));
+//localStorage.setItem("userList", JSON.stringify(userList));
 document.getElementById('itemsAmount').innerHTML = userList.users[userId].amount;
 
 function isValid(number)
