@@ -35,7 +35,7 @@ function removeUser(id)
     showUserList();
 }
 
-function findUserId(name)
+function findUserId(name) // Can be replaced with something better
 {
     for (let i = 0; i < list.users.length; i++)
     {
